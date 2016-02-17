@@ -1,0 +1,267 @@
+/*
+ * Copyright (c) 2016 Thomas Seguin
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+// Reset and dependencies
+@import "paper/normalize";
+
+/* SHADOWS */
+
+$shadow-key-umbra-opacity: 0.2;
+$shadow-key-penumbra-opacity: 0.14;
+$shadow-ambient-shadow-opacity: 0.12;
+
+/* COLORS */
+
+$color-grey-50: #FAFAFA;
+$color-grey-100: #F5F5F5;
+$color-grey-200: #EEEEEE;
+$color-grey-300: #E0E0E0;
+$color-grey-400: #BDBDBD;
+$color-grey-500: #9E9E9E;
+$color-grey-600: #757575;
+$color-grey-700: #616161;
+$color-grey-800: #424242;
+$color-grey-900: #212121;
+
+$color-black: #000;
+$color-white: #fff;
+
+$accent-color: #ffab40;
+
+$color-main-text: rgba(white, 0.87);
+
+$color-secondary-text: rgba(white, 0.54);
+
+$base-font-size: 17px;
+
+html, body, .paper-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Cabin', 'Roboto', sans-serif;
+  font-size: $base-font-size;
+  color: $color-secondary-text;
+  margin: 0;
+  padding: 0;
+  background: $color-grey-900;
+  //background: linear-gradient(115deg, #263238 0%, #37474F 30%, #37474F 70%, #263238 100%);
+}
+
+a {
+  color: $color-main-text;
+  text-decoration: underline;
+}
+
+.page-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-row-expanded {
+  flex-grow: 1;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.page-spacer {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.main-content {
+  width: 1170px;
+  max-width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  & h2 {
+    margin: 0;
+    font-family: 'Raleway', 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    color: $color-main-text;
+  }
+}
+
+nav {
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  ul {
+    display: flex;
+    list-style: none;
+  }
+  li {
+    margin-left: 16px;
+    line-height: 32px;
+  }
+  a {
+    font-size: $base-font-size;
+    text-decoration: none ;
+    color: $color-secondary-text;
+    &:hover {
+      color: $color-main-text;
+    }
+  }
+}
+
+.desc {
+  font-size: 20px;
+  margin: 64px 0 32px 0;
+  .desc-large {
+    color: white;
+    font-size: 64px;
+    margin-bottom: 24px;
+    color: $color-main-text;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.card {
+  margin: 24px 0;
+  padding: 16px;
+  box-sizing: border-box;
+  display: block;
+  background-color : white;
+  color: black;
+  border-radius: 2px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+    0 1px 10px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+    0 2px 4px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+  & h3 {
+    font-family: 'Raleway', 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 0 0 16px 0;
+  }
+  & p {
+    font-size: $base-font-size;
+  }
+}
+
+.abouts {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  & .about {
+    flex-grow: 1;
+    & h3 {
+      margin: 0 0 16px 0;
+      font-size: 24px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: $color-main-text;
+      font-family: 'Raleway', 'Roboto', sans-serif;
+    }
+    & ul {
+      margin: 0;
+    }
+    & p, ul {
+      font-size: $base-font-size;
+      color: $color-secondary-text;
+      margin-bottom: 32px;
+    }
+    & ul.contacts {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      & li {
+        margin-bottom: 8px;
+        line-height: 20px;
+        & .contact-icon {
+          margin-right: 8px;
+          font-size: 20px;
+        }
+        & a {
+          text-decoration: none;
+        }
+      }
+    }
+    & .experience {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 24px;
+      & .date {
+        box-sizing: border-box;
+        padding-right: 8px;
+        width: 15%;
+        text-align: right;
+      }
+      & .content {
+        width: 11/12 * 100%;
+        & h4 {
+          margin: 0;
+          color: $color-main-text;
+          font-weight: 400;
+          font-size: $base-font-size;
+        }
+      }
+    }
+  }
+  &.abouts-contacts {
+    justify-content: center;
+
+    & .about {
+      flex-grow: 0;
+    }
+  }
+
+}
+
+footer {
+  box-sizing: border-box;
+  width: 1170px;
+  max-width: 100%;
+  padding: 32px 16px;
+  background: $color-grey-900;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  & .code-origin {
+    vertical-align: middle;
+    display: inline-flex;
+    & .fa {
+      font-size: 20px;
+      width: 1.8em;
+      text-align: center;
+    }
+  }
+}
